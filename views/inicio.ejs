@@ -1,0 +1,54 @@
+
+
+<%- include('partials/header'); %>
+
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-body">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <h4 class="mb-4">Lista de Lugares</h4>
+      <a href="/lugares/nuevo" class="btn btn-primary">Agregar Lugar</a>
+      </div>
+
+    <div class="d-flex justify-content-center mb-3">
+</div>
+      <table class="table table-striped table-hover table-bordered align-middle">
+        <thead class="table-dark">
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Sector</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% if (lugares.length > 0) { %>
+            <% lugares.forEach(lugar => { %>
+              <tr>
+                <td><%= lugar.id %></td>
+                <td><%= lugar.nombre %></td>
+                <td><%= lugar.direccion %></td>
+                <td><%= lugar.sector %></td>
+                <td>
+                  <a href="/lugares/edit/<%= lugar.id %>" class="btn btn-warning btn-sm">Editar</a>
+                  <a href="/lugares/delete/<%= lugar.id %>" class="btn btn-danger btn-sm">Eliminar</a>
+                </td>
+              </tr>
+            <% }) %>
+          <% } else { %>
+            <tr>
+              <td colspan="5" class="text-center">No hay lugares registrados</td>
+            </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <%- include('partials/footer'); %>

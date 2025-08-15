@@ -3,9 +3,11 @@ const {Router} = require('express')
 //para poder exportar las rutas
 const router = Router()
     
+/*
 router.get('/', (req, res) => {
     res.send('Hola mundo')
 })
+    */
 
 router.get('/consultar', (req, res) => {
 
@@ -28,8 +30,6 @@ router.get('/consultar', (req, res) => {
         users
     })
 })
-
-
 
 module.exports = router
 

@@ -1,0 +1,37 @@
+<%- include('partials/header'); %>
+
+
+<div class="container mt-4">
+  <div class="card shadow">
+    <div class="card-body">
+      <h4 class="mb-4">Editar Lugar</h4>
+
+      <form action="/lugares/edit/<%= lugar.id %>?_method=PUT" method="POST">
+        <div class="mb-3">
+          <label for="nombre" class="form-label">Nombre del Lugar</label>
+          <input type="text" class="form-control" id="nombre" name="nombre" value="<%= lugar.nombre %>" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="direccion" class="form-label">Dirección</label>
+          <input type="text" class="form-control" id="direccion" name="direccion" value="<%= lugar.direccion %>" required>
+        </div>
+
+        <div class="mb-3">
+          <label for="sector_id" class="form-label">Sector</label>
+          <select class="form-select" id="sector_id" name="sector_id" required>
+            <% sectores.forEach(sector => { %>
+              <option value="<%= sector.id %>" <%= sector.id === lugar.sector_id ? 'selected' : '' %>><%= sector.nombre %></option>
+            <% }) %>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-success">Actualizar</button>
+        <a href="/lugares" class="btn btn-secondary">Cancelar</a>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+ <%- include('partials/footer'); %>
